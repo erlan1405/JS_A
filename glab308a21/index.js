@@ -16,29 +16,32 @@ const adventurer = {
 //adventurer.roll()
 
 class Character {
+    static MAX_HEATH = 100;
+
     constructor(name) {
         this.name = name;
-        this.health = 100;
+        this.health = Character.MAX_HEATH;
         this.inventory = [];
-        static.MAX_HEATH = 100;
 
     }
 }
 
-const robin = new Character("Robin");
-robin.inventory = ["sword", "potion", "artifact"];
-robin.companion = new Character("Leo");
-robin.companion.type = "Cat";
-robin.companion.companion = new Character("Frank");
-robin.companion.companion.type = "Flea";
-robin.companion.companion.inventory = ["small hat", "sunglasses"];
+// const robin = new Character("Robin");
+// robin.inventory = ["sword", "potion", "artifact"];
+// robin.companion = new Character("Leo");
+// robin.companion.type = "Cat";
+// robin.companion.companion = new Character("Frank");
+// robin.companion.companion.type = "Flea";
+// robin.companion.companion.inventory = ["small hat", "sunglasses"];
 
 class Adventurer extends Character {
+    static roles = ["Healer", "Fighter", "Wizard"];
+
     constructor(name, role) {
         super(name);
         // Adventurers have specialized roles.
-        //this.role = role;
-        static.roles = ["Healer", "Fighter", "Wizard"];
+        this.role = role;
+        
         // Every adventurer starts with a bed and 50 gold coins.
         this.inventory.push("bedroll", "50 gold coins");
     }
